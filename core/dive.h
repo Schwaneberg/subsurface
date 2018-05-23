@@ -14,6 +14,7 @@
 #include <string.h>
 #include <sys/stat.h>
 #include "divesite.h"
+#include "equipment.h"
 #include <libxml/tree.h>
 #include <libxslt/transform.h>
 #include <libxslt/xsltutils.h>
@@ -59,11 +60,11 @@ typedef struct
 	bool bestmix_he;
 } cylinder_t;
 
-typedef struct
+/*typedef struct #BUSTED
 {
 	weight_t weight;
-	const char *description; /* "integrated", "belt", "ankle" */
-} weightsystem_t;
+	const char *description;  "integrated", "belt", "ankle" 
+} weightsystem_t;*/
 
 struct icd_data { // This structure provides communication between function isobaric_counterdiffusion() and the calling software.
 	int dN2;      // The change in fraction (permille) of nitrogen during the change
@@ -310,13 +311,14 @@ struct dive {
 	bool downloaded;
 	timestamp_t when;
 	uint32_t dive_site_uuid;
+	equipment_container_t *equipment_list;
 	char *notes;
 	char *divemaster, *buddy;
 	int rating;
 	int visibility; /* 0 - 5 star rating */
 	cylinder_t cylinder[MAX_CYLINDERS];
-	weightsystem_t weightsystem[MAX_WEIGHTSYSTEMS];
-	char *suit;
+	//weightsystem_t weightsystem[MAX_WEIGHTSYSTEMS]; #BUSTED
+	//char *suit; #BUSTED
 	int sac, otu, cns, maxcns;
 
 	/* Calculated based on dive computer data */
