@@ -55,7 +55,8 @@ public:
 		INFO_MAXIMIZED,
 		PROFILE_MAXIMIZED,
 		LIST_MAXIMIZED,
-		EDIT
+		EDIT,
+		EQUIPMENT
 	};
 
 	MainWindow();
@@ -118,6 +119,7 @@ slots:
 	void on_actionRenumber_triggered();
 	void on_actionAutoGroup_triggered();
 	void on_actionYearlyStatistics_triggered();
+	void on_actionEquipmentTracker_triggered();
 
 	/* view menu actions */
 	void on_actionViewList_triggered();

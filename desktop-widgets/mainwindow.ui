@@ -15,7 +15,16 @@
     <property name="spacing">
      <number>0</number>
     </property>
-    <property name="margin">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
      <number>0</number>
     </property>
     <item>
@@ -53,7 +62,7 @@
      <x>0</x>
      <y>0</y>
      <width>861</width>
-     <height>23</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -85,6 +94,7 @@
     <addaction name="actionEditDive"/>
     <addaction name="actionDivePlanner"/>
     <addaction name="actionReplanDive"/>
+    <addaction name="separator"/>
     <addaction name="copy"/>
     <addaction name="paste"/>
     <addaction name="separator"/>
@@ -93,6 +103,8 @@
     <addaction name="separator"/>
     <addaction name="actionEditDeviceNames"/>
     <addaction name="actionFilterTags"/>
+    <addaction name="separator"/>
+    <addaction name="actionEquipmentTracker"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -453,7 +465,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../subsurface.qrc">
+    <iconset>
      <normaloff>:pp-o2-icon</normaloff>:pp-o2-icon</iconset>
    </property>
    <property name="text">
@@ -465,7 +477,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../subsurface.qrc">
+    <iconset>
      <normaloff>:pp-n2-icon</normaloff>:pp-n2-icon</iconset>
    </property>
    <property name="text">
@@ -477,7 +489,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../subsurface.qrc">
+    <iconset>
      <normaloff>:pp-he-icon</normaloff>:pp-he-icon</iconset>
    </property>
    <property name="text">
@@ -489,7 +501,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../subsurface.qrc">
+    <iconset>
      <normaloff>:ceiling-dc-icon</normaloff>:ceiling-dc-icon</iconset>
    </property>
    <property name="text">
@@ -501,7 +513,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../subsurface.qrc">
+    <iconset>
      <normaloff>:ceiling-calculated-icon</normaloff>:ceiling-calculated-icon</iconset>
    </property>
    <property name="text">
@@ -513,7 +525,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../subsurface.qrc">
+    <iconset>
      <normaloff>:ceiling-tissues-icon</normaloff>:ceiling-tissues-icon</iconset>
    </property>
    <property name="text">
@@ -525,7 +537,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../subsurface.qrc">
+    <iconset>
      <normaloff>:ceiling-increments-icon</normaloff>:ceiling-increments-icon</iconset>
    </property>
    <property name="text">
@@ -537,7 +549,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../subsurface.qrc">
+    <iconset>
      <normaloff>:rate-heart-icon</normaloff>:rate-heart-icon</iconset>
    </property>
    <property name="text">
@@ -549,7 +561,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../subsurface.qrc">
+    <iconset>
      <normaloff>:depth-mod-icon</normaloff>:depth-mod-icon</iconset>
    </property>
    <property name="text">
@@ -561,7 +573,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../subsurface.qrc">
+    <iconset>
      <normaloff>:depth-ead-icon</normaloff>:depth-ead-icon</iconset>
    </property>
    <property name="text">
@@ -573,7 +585,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../subsurface.qrc">
+    <iconset>
      <normaloff>:depth-ndl-icon</normaloff>:depth-ndl-icon</iconset>
    </property>
    <property name="text">
@@ -585,7 +597,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../subsurface.qrc">
+    <iconset>
      <normaloff>:rate-sac-icon</normaloff>:rate-sac-icon</iconset>
    </property>
    <property name="text">
@@ -597,7 +609,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../subsurface.qrc">
+    <iconset>
      <normaloff>:ruler-icon</normaloff>:ruler-icon</iconset>
    </property>
    <property name="text">
@@ -609,7 +621,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../subsurface.qrc">
+    <iconset>
      <normaloff>:scale-graph-icon</normaloff>:scale-graph-icon</iconset>
    </property>
    <property name="text">
@@ -621,7 +633,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../subsurface.qrc">
+    <iconset>
      <normaloff>:photo-icon</normaloff>:photo-icon</iconset>
    </property>
    <property name="text">
@@ -633,7 +645,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../subsurface.qrc">
+    <iconset>
      <normaloff>:gaschange-icon</normaloff>:gaschange-icon</iconset>
    </property>
    <property name="text">
@@ -656,7 +668,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../subsurface.qrc">
+    <iconset>
      <normaloff>:heatmap-icon</normaloff>:heatmap-icon</iconset>
    </property>
    <property name="text">
@@ -722,6 +734,14 @@
     <string>Cloud storage online</string>
    </property>
   </action>
+  <action name="actionEquipmentTracker">
+   <property name="text">
+    <string>&amp;Equipment Tracker</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -737,8 +757,6 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../subsurface.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

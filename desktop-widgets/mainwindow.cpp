@@ -17,6 +17,10 @@
 #include "core/version.h"
 #include "core/subsurface-string.h"
 #include "desktop-widgets/divelistview.h"
+#include "desktop-widgets/equipmentdetails.h"
+#include "desktop-widgets/equipmentlist.h"
+#include "desktop-widgets/equipmentsummary.h"
+#include "desktop-widgets/equipmentuse.h"
 #include "desktop-widgets/downloadfromdivecomputer.h"
 #include "desktop-widgets/subsurfacewebservices.h"
 #include "desktop-widgets/divecomputermanagementdialog.h"
@@ -161,13 +165,19 @@ MainWindow::MainWindow() : QMainWindow(),
 	PropertyList disabledList;
 	enabledList.push_back(enabled);
 	disabledList.push_back(disabled);
-
+	
+	QWidget *equipmentListWidget = new equipmentList();
+	QWidget *equipmentDetailsWidget = new equipmentDetails();
+	QWidget *equipmentSummaryWidget = new equipmentSummary();
+	QWidget *equipmentUseWidget = new equipmentUse();
+	
 	registerApplicationState("Default", mainTab, profileContainer, diveListView, mapWidget );
 	registerApplicationState("AddDive", mainTab, profileContainer, diveListView, mapWidget );
 	registerApplicationState("EditDive", mainTab, profileContainer, diveListView, mapWidget );
 	registerApplicationState("PlanDive", plannerWidget, profileContainer, plannerSettings, plannerDetails );
 	registerApplicationState("EditPlannedDive", plannerWidget, profileContainer, diveListView, mapWidget );
 	registerApplicationState("EditDiveSite", diveSiteEdit, profileContainer, diveListView, mapWidget);
+	registerApplicationState("EquipmentTracker", equipmentListWidget, equipmentDetailsWidget, equipmentSummaryWidget, equipmentUseWidget);
 
 	setStateProperties("Default", enabledList, enabledList, enabledList,enabledList);
 	setStateProperties("AddDive", enabledList, enabledList, enabledList,enabledList);
@@ -175,6 +185,7 @@ MainWindow::MainWindow() : QMainWindow(),
 	setStateProperties("PlanDive", enabledList, enabledList, enabledList,enabledList);
 	setStateProperties("EditPlannedDive", enabledList, enabledList, enabledList,enabledList);
 	setStateProperties("EditDiveSite", enabledList, disabledList, disabledList, enabledList);
+	setStateProperties("EquipmentTracker", enabledList, enabledList, enabledList,enabledList);
 
 	setApplicationState("Default");
 
@@ -1287,6 +1298,7 @@ void MainWindow::enterState(CurrentState newState)
 		on_actionViewProfile_triggered();
 		break;
 	case EDIT:
+	case EQUIPMENT:
 	default:
 		break;
 	}
@@ -2089,4 +2101,18 @@ void MainWindow::unsetProfTissues()
 
 	ui.profTissues->setChecked(false);
 	sWrapper->techDetails->setPercentageGraph(false);
+}
+
+void MainWindow::on_actionEquipmentTracker_triggered()
+{
+	if (dive_list()->selectedTrips().count() >= 1) {
+		dive_list()->rememberSelection();
+		dive_list()->clearSelection();
+	}
+
+	setApplicationState("EquipmentTracker");
+	
+	//graphics()->setEquipmentTrackerState(); TODO Olli?
+	//DivePlannerPointsModel::instance()->createSimpleDive();
+	configureToolbar();
 }

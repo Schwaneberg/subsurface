@@ -33,6 +33,10 @@ set (SUBSURFACE_UI
 	diveplanner.ui
 	diveshareexportdialog.ui
 	downloadfromdivecomputer.ui
+	equipmentdetails.ui
+	equipmentlist.ui
+	equipmentsummary.ui
+	equipmentuse.ui
 	filterwidget.ui
 	listfilter.ui
 	locationInformation.ui
@@ -66,6 +70,10 @@ set(SUBSURFACE_INTERFACE
 	diveplanner.cpp
 	diveshareexportdialog.cpp
 	downloadfromdivecomputer.cpp
+	equipmentdetails.cpp
+	equipmentlist.cpp
+	equipmentsummary.cpp
+	equipmentuse.cpp
 	kmessagewidget.cpp
 	mainwindow.cpp
 	mapwidget.cpp

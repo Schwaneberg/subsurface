@@ -59,6 +59,7 @@ public:
 		EDIT,
 		ADD,
 		PLAN,
+		EQUIPMENT,
 		INVALID
 	};
 	enum Items {

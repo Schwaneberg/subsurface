@@ -20,6 +20,7 @@ set(SUBSURFACE_DESKTOP_MODELS_LIB_SRCS
 	cylindermodel.cpp
 	yearlystatisticsmodel.cpp
 	weightsysteminfomodel.cpp
+	equipmenttablemodel.cpp
 	weightmodel.cpp
 	filtermodels.cpp
 	divecomputermodel.cpp

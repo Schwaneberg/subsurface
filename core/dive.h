@@ -60,11 +60,11 @@ typedef struct
 	bool bestmix_he;
 } cylinder_t;
 
-/*typedef struct #BUSTED
+typedef struct // To be #BUSTED
 {
 	weight_t weight;
-	const char *description;  "integrated", "belt", "ankle" 
-} weightsystem_t;*/
+	const char *description; // "integrated", "belt", "ankle" 
+} weightsystem_t;
 
 struct icd_data { // This structure provides communication between function isobaric_counterdiffusion() and the calling software.
 	int dN2;      // The change in fraction (permille) of nitrogen during the change
@@ -317,8 +317,8 @@ struct dive {
 	int rating;
 	int visibility; /* 0 - 5 star rating */
 	cylinder_t cylinder[MAX_CYLINDERS];
-	//weightsystem_t weightsystem[MAX_WEIGHTSYSTEMS]; #BUSTED
-	//char *suit; #BUSTED
+	weightsystem_t weightsystem[MAX_WEIGHTSYSTEMS]; // To be #BUSTED
+	char *suit; // To be #BUSTED
 	int sac, otu, cns, maxcns;
 
 	/* Calculated based on dive computer data */
